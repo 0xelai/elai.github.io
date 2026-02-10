@@ -24,17 +24,272 @@ header{display:flex;justify-content:space-between;align-items:center;padding:40p
 .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.12)}
 .card h3{margin:0 0 8px}
 .card span{font-size:14px;opacity:.7}
+
+/* === Targeted color overrides (ONLY card colors changed) === */
+.projects .card:nth-child(1) { background: #E8F4EC !important; } /* Vertus - light pastel green */
+.projects .card:nth-child(3) { background: #EFE9FF !important; } /* TACBUILD - very light purple */
+.projects .card:nth-child(8) { background: #EAF6FF !important; } /* Pudgy Friends - very light sky blue */
+
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 <style>
 .details{display:none;margin-top:14px;font-size:14px;line-height:1.6;color:#444}
 .card.active .details{display:block}
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
 <style>
 .details{font-weight:400}
 .click-hint{margin-top:10px;font-size:12px;letter-spacing:1px;opacity:.6}
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
@@ -51,6 +306,89 @@ header{display:flex;justify-content:space-between;align-items:center;padding:40p
 }
 .audio-toggle:hover{opacity:1}
 .audio-toggle svg{width:100%;height:100%}
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
@@ -62,6 +400,89 @@ header{display:flex;justify-content:space-between;align-items:center;padding:40p
 .card:not(.active) {
   height: auto !important;
 }
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
@@ -77,6 +498,89 @@ header{display:flex;justify-content:space-between;align-items:center;padding:40p
   max-height: 600px; /* enough to fit content */
   opacity: 1;
 }
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
@@ -98,6 +602,89 @@ header{display:flex;justify-content:space-between;align-items:center;padding:40p
 .attributes-list li::marker{
   color: #7ED957;
 }
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
@@ -120,6 +707,89 @@ body::before {
   filter: blur(14px);
   z-index: -1;
 }
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
@@ -149,18 +819,184 @@ body::after {
   pointer-events: none;
   z-index: -1;
 }
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 
 <style>
-.projects .card:nth-child(1) { background: #BDF2E6; }
-.projects .card:nth-child(2) { background: #C7F4EB; }
-.projects .card:nth-child(3) { background: #D2F7EF; }
-.projects .card:nth-child(4) { background: #DBF9F3; }
-.projects .card:nth-child(5) { background: #E4FBEE; }
-.projects .card:nth-child(6) { background: #ECFEF1; }
-.projects .card:nth-child(7) { background: #F0FEF8; }
-.projects .card:nth-child(8) { background: #F3FEFC; }
+.projects .card:nth-child(1) { background:#C8C5C2; }
+.projects .card:nth-child(2) { background:#A9A8A2; }
+.projects .card:nth-child(3) { background:#9E9E9C; }
+.projects .card:nth-child(4) { background:#B8B8B6; }
+.projects .card:nth-child(5) { background:#9B9FA7; }
+.projects .card:nth-child(6) { background:#8D8C86; }
+.projects .card:nth-child(7) { background:#ADB0C0; }
+.projects .card:nth-child(8) { background:#737736; }
+
+/* Alternating card colors: white then soft gray */
+.projects .card:nth-child(odd) {
+  background: #9fa0a4 !important;
+}
+.projects .card:nth-child(even) {
+  background: #E9F5DB !important;
+}
+
+
+/* === Green shade rotation for project cards === */
+.project-card:nth-child(1) { background: #BDF2E6; }
+.project-card:nth-child(2) { background: #C7F4EB; }
+.project-card:nth-child(3) { background: #D2F7EF; }
+.project-card:nth-child(4) { background: #DBF9F3; }
+.project-card:nth-child(5) { background: #E4FBEE; }
+.project-card:nth-child(6) { background: #ECFEF1; }
+.project-card:nth-child(7) { background: #F0FEF8; }
+.project-card:nth-child(8) { background: #F3FEFC; }
+
+
+/* Premium Resume Section */
+.resume-link{
+  padding: 100px 60px;
+}
+
+.resume-link h2{
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.resume-card{
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.25);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 
+    20px 20px 60px rgba(0,0,0,0.08),
+    -20px -20px 60px rgba(255,255,255,0.6);
+  display: inline-block;
+}
+
+.resume-button{
+  display: inline-block;
+  padding: 18px 36px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #E4FBEE, #C7F4EB);
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.resume-button:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator{
+  text-align: center;
+  margin: 80px 0 40px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.scroll-line{
+  width: 2px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(to bottom, #C7F4EB, transparent);
+  animation: scrollAnim 1.6s infinite ease-in-out;
+}
+
+@keyframes scrollAnim{
+  0%{transform: translateY(0); opacity:0.6;}
+  50%{transform: translateY(8px); opacity:1;}
+  100%{transform: translateY(0); opacity:0.6;}
+}
+
 </style>
 
 </head>
@@ -285,6 +1121,24 @@ function toggleAudio(){
     <li>Clear communicator</li>
     <li>Calm under pressure</li>
   </ul>
+</section>
+
+
+
+<div class="scroll-indicator">
+  <span>SCROLL</span>
+  <div class="scroll-line"></div>
+</div>
+
+<section class="resume-link">
+  <h2>Resume / CV</h2>
+  <div class="resume-card">
+    <a href="https://docs.google.com/document/d/10833IJnkov-O15U5oHObPL-9tx-o-o6nMccVNjzAWCs/edit?usp=drivesdk" 
+       target="_blank" 
+       class="resume-button">
+       Click to view my Resume / CV
+    </a>
+  </div>
 </section>
 
 </body>
