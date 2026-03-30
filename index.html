@@ -1099,6 +1099,53 @@ body::after {
 
 </style>
 
+<style>
+/* === Motion pack: bento / 3D-tilt inspired (reference videos) === */
+.hero.hero-mesh{position:relative;overflow:hidden}
+.hero.hero-mesh::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(0,0,0,.07) 1px,transparent 1px);
+  background-size:28px 28px;
+  pointer-events:none;z-index:0;opacity:.55;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.25));
+}
+.hero.hero-mesh > *{position:relative;z-index:1}
+
+@keyframes elaiFadeUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero > div:first-child h1{animation:elaiFadeUp .8s .05s cubic-bezier(.2,.8,.2,1) both}
+.hero > div:first-child p{animation:elaiFadeUp .85s .14s cubic-bezier(.2,.8,.2,1) both}
+.hero > div:first-child .scroll{animation:elaiFadeUp .8s .26s cubic-bezier(.2,.8,.2,1) both}
+.hero img{animation:elaiFadeUp 1s .08s cubic-bezier(.2,.8,.2,1) both}
+
+.reveal-on-scroll{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .85s cubic-bezier(.2,.8,.2,1),transform .85s cubic-bezier(.2,.8,.2,1);
+  will-change:opacity,transform;
+}
+.reveal-on-scroll.in-view{opacity:1;transform:translateY(0)}
+
+.projects .grid{
+  perspective:1100px;
+  perspective-origin:50% 40%;
+}
+.projects .card{
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  transition:transform .18s ease-out,box-shadow .25s ease;
+}
+.projects .card.is-tilting{transition:transform .08s ease-out}
+@media (prefers-reduced-motion:reduce){
+  .hero > div:first-child h1,.hero > div:first-child p,.hero > div:first-child .scroll,.hero img{animation:none!important;opacity:1;transform:none}
+  .reveal-on-scroll{opacity:1;transform:none;transition:none}
+  .projects .card{transition:box-shadow .25s ease}
+}
+</style>
+
 </head>
 <body>
 
@@ -1111,7 +1158,7 @@ body::after {
   </div>
 </header>
 
-<section class="hero">
+<section class="hero hero-mesh">
   <div>
     <h1>ELAI</h1>
     <p>COMMUNITY MANAGER WHO ACTUALLY UNDERSTANDS PEOPLE</p>
@@ -1282,5 +1329,45 @@ function openEmbeddedResume(event){
   }
 }
 </script><!-- embedded-resume-script-end -->
+
+<script>
+(function(){
+  function initReveal(){
+    var nodes=document.querySelectorAll(".projects, .attributes, .resume-link, .site-footer, .scroll-indicator");
+    if(!nodes.length) return;
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting) e.target.classList.add("in-view");
+      });
+    },{threshold:0.12,rootMargin:"0px 0px -32px 0px"});
+    nodes.forEach(function(n){ n.classList.add("reveal-on-scroll"); io.observe(n); });
+  }
+  function initCardTilt(){
+    var cards=document.querySelectorAll(".projects .grid .card");
+    if(!window.matchMedia("(prefers-reduced-motion:reduce)").matches){
+      cards.forEach(function(card){
+        card.addEventListener("mousemove",function(ev){
+          var r=card.getBoundingClientRect();
+          var x=ev.clientX-r.left,y=ev.clientY-r.top;
+          var cx=r.width/2,cy=r.height/2;
+          var max=10;
+          var rx=((y-cy)/cy)*-max;
+          var ry=((x-cx)/cx)*max;
+          card.classList.add("is-tilting");
+          card.style.transform="perspective(900px) rotateX("+rx+"deg) rotateY("+ry+"deg) translateY(-6px)";
+        });
+        card.addEventListener("mouseleave",function(){
+          card.classList.remove("is-tilting");
+          card.style.transform="";
+        });
+      });
+    }
+  }
+  if(document.readyState==="loading")
+    document.addEventListener("DOMContentLoaded",function(){ initReveal(); initCardTilt(); });
+  else{ initReveal(); initCardTilt(); }
+})();
+</script>
+
 </body>
 </html>
