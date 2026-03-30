@@ -24,6 +24,23 @@ header{display:flex;justify-content:space-between;align-items:center;padding:40p
 .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.12)}
 .card h3{margin:0 0 8px}
 .card span{font-size:14px;opacity:.7}
+.status-dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  margin-left:8px;
+  border-radius:50%;
+  background:#BDF2C8;
+  box-shadow:0 0 0 rgba(189,242,200,.9);
+  animation:pulseDot 1.8s infinite;
+  vertical-align:middle;
+}
+
+@keyframes pulseDot{
+  0%{transform:scale(1);box-shadow:0 0 0 0 rgba(189,242,200,.9);}
+  70%{transform:scale(1.08);box-shadow:0 0 0 10px rgba(189,242,200,0);}
+  100%{transform:scale(1);box-shadow:0 0 0 0 rgba(189,242,200,0);}
+}
 
 /* === Targeted color overrides (ONLY card colors changed) === */
 .projects .card:nth-child(1) { background: #E8F4EC !important; } /* Vertus - light pastel green */
@@ -1170,26 +1187,38 @@ body::after {
 <section class="projects">
   <h2>PROJECTS</h2>
   <div class="grid">
-    <div class="card" onclick="toggleCard(this)" onclick="toggleCard(this)"><h3 >Vertus Wallet<div class="click-hint">CLICK TO VIEW DETAILS</div>
+    <div class="card">
+  <h3>Greywood Hotels and Apartment <span class="status-dot"></span></h3>
+  <span>Customer Service Representative</span>
+</div>
+    <div class="card" onclick="toggleCard(this)"><h3>Wormhole<div class="click-hint">CLICK TO VIEW DETAILS</div>
+<div class="details">
+- Led Telegram and Discord as Community Lead<br>
+- Helped grow the community to 200k+ members<br>
+- Controlled FUD and kept things steady during the delayed TGE<br>
+- Stayed close to community sentiment and understood what users wanted<br>
+- Helped make sure the community felt heard, satisfied, and supported
+</div></h3><span>Community Lead</span></div>
+    <div class="card" onclick="toggleCard(this)"><h3 >Vertus Wallet<div class="click-hint">CLICK TO VIEW DETAILS</div>
 <div class="details">
 • Moderated main chats and language specific channels<br>
 • Acted as a bridge between the community and the core team<br>
 • Helped control FUD during the TGE delay<br>
 • Maintained trust leading into TGE
 </div></h3><span>Assistant Community Manager</span></div>
-    <div class="card" onclick="toggleCard(this)" onclick="toggleCard(this)"><h3 >Fintopio<div class="click-hint">CLICK TO VIEW DETAILS</div>
+    <div class="card" onclick="toggleCard(this)"><h3 >Fintopio<div class="click-hint">CLICK TO VIEW DETAILS</div>
 <div class="details">
 • Highly active community member and top contributor<br>
 • Kept chats engaged during low activity periods<br>
 • Initiated engagement activities
 </div></h3><span>Active Community Member</span></div>
-    <div class="card" onclick="toggleCard(this)" onclick="toggleCard(this)"><h3 >TACBUILD<div class="click-hint">CLICK TO VIEW DETAILS</div>
+    <div class="card" onclick="toggleCard(this)"><h3 >TACBUILD<div class="click-hint">CLICK TO VIEW DETAILS</div>
 <div class="details">
 • OG community member<br>
 • Created 100+ video contents<br>
 • Onboarded and educated new users
 </div></h3><span>TAC Agent</span></div>
-    <div class="card" onclick="toggleCard(this)" onclick="toggleCard(this)"><h3 >Glider<div class="click-hint">CLICK TO VIEW DETAILS</div>
+    <div class="card" onclick="toggleCard(this)"><h3 >Glider<div class="click-hint">CLICK TO VIEW DETAILS</div>
 <div class="details">
 • Wrote two in-depth pre launch articles<br>
 • Covered product updates for early users
