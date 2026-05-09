@@ -1133,10 +1133,18 @@ body::after {
   from{opacity:0;transform:translateY(28px)}
   to{opacity:1;transform:translateY(0)}
 }
+@keyframes heroFloat{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+  100%{transform:translateY(0)}
+}
 .hero > div:first-child h1{animation:elaiFadeUp .8s .05s cubic-bezier(.2,.8,.2,1) both}
 .hero > div:first-child p{animation:elaiFadeUp .85s .14s cubic-bezier(.2,.8,.2,1) both}
 .hero > div:first-child .scroll{animation:elaiFadeUp .8s .26s cubic-bezier(.2,.8,.2,1) both}
-.hero img{animation:elaiFadeUp 1s .08s cubic-bezier(.2,.8,.2,1) both}
+.hero img{
+  animation:heroFloat 6.8s ease-in-out infinite;
+  will-change:transform;
+}
 
 .reveal-on-scroll{
   opacity:0;
@@ -1154,6 +1162,31 @@ body::after {
   transform-style:preserve-3d;
   backface-visibility:hidden;
   transition:transform .18s ease-out,box-shadow .25s ease;
+  /* Crystal-clear glass style */
+  background:rgba(255,255,255,0.05) !important;
+  border:1px solid rgba(255,255,255,0.40);
+  backdrop-filter:blur(2px) saturate(110%);
+  -webkit-backdrop-filter:blur(2px) saturate(110%);
+  box-shadow:
+    0 10px 26px rgba(15,23,42,0.16),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+/* Override all older odd/even/specific card color rules */
+.projects .card:nth-child(n){
+  background:rgba(255,255,255,0.05) !important;
+}
+.projects .card:hover{
+  box-shadow:
+    0 14px 36px rgba(15,23,42,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.52);
+}
+.projects .card h3,
+.projects .card span{
+  color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,0.22);
+}
+.projects .card .details{
+  color:rgba(255,255,255,0.94);
 }
 .projects .card.is-tilting{transition:transform .08s ease-out}
 @media (prefers-reduced-motion:reduce){
@@ -1170,7 +1203,7 @@ body::after {
   <div class="logo">ELAI</div>
   <div class="contact" onclick="toggleContact()">CONTACT
     <div class="contact-menu" id="contactMenu">
-      <a href="https://x.com/elaiii" target="_blank">Twitter / X</a>
+      <a href="https://x.com/0xelai" target="_blank">Twitter / X</a>
     </div>
   </div>
 </header>
@@ -1188,8 +1221,8 @@ body::after {
   <h2>PROJECTS</h2>
   <div class="grid">
     <div class="card">
-  <h3>Greywood Hotels and Apartment <span class="status-dot"></span></h3>
-  <span>Customer Service Representative</span>
+  <h3>Unicity Labs <span class="status-dot"></span></h3>
+  <span>Moderator</span>
 </div>
     <div class="card" onclick="toggleCard(this)"><h3>Wormhole<div class="click-hint">CLICK TO VIEW DETAILS</div>
 <div class="details">
